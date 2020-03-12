@@ -1,25 +1,19 @@
 <?xml version='1.0'?>
 
 <dialoguetree>
-<dialoguebranch1>
+<dialoguebranch>
 <text>Testing if the test prints</text>
-</dialoguebranch1>
-<dialoguebranch2>
-<text>This is branch 2a</text>
-</dialoguebranch2>
-<dialoguebranch3>
-<text>This is branch 2b</text>
-</dialoguebranch3>
-<dialoguebranch4>
-<text> This is branch 3a</text>
-</dialoguebranch4>
-<dialoguebranch5>
-<text>This is branch 3b</text>
-</dialoguebranch5>
-<dialoguebranch6>
-<text>TThis is branch 3c</text>
-</dialoguebranch6>
-<dialoguebranch7>
-<text>This is branch 3d</text>
-</dialoguebranch7>
+	<dialoguebranch>
+		<text>Branch 1</text>
+		<dialoguebranch>
+			<text>Branch 1a</text>
+		</dialoguebranch>
+		<dialoguebranch>
+			<text>Branch 1b</text>
+		</dialoguebranch>
+	</dialoguebranch>
+	<dialoguebranch>
+		<text>Branch 2</text>
+	</dialoguebranch>
+</dialoguebranch>
 </dialoguetree>
