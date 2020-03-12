@@ -8,6 +8,8 @@ public class XMLreaderOld : MonoBehaviour
 {
     public TextAsset xmlRawFile;
     public Text uiText;
+    public Text option1;
+    public Text option2;
     public GameObject dialoguePanelv2;
     Button continueButton;
     Button yesButton;
@@ -20,22 +22,20 @@ public class XMLreaderOld : MonoBehaviour
         string data = xmlRawFile.text;
         parseXmlFile(data);
 
-        //continueButton = dialoguePanel.transform.Find("Continue").GetComponent<Button>();
-        //continueButton.onClick.AddListener(delegate { ContinueDialogue(); });
-
-        yesButton = dialoguePanelv2.transform.Find("Yes").GetComponent<Button>();
+        yesButton = dialoguePanelv2.transform.Find("Option1").GetComponent<Button>();
         yesButton.onClick.AddListener(delegate { ContinueYesDialogue(); });
 
-        noButton = dialoguePanelv2.transform.Find("No").GetComponent<Button>();
+        noButton = dialoguePanelv2.transform.Find("Option2").GetComponent<Button>();
         noButton.onClick.AddListener(delegate { ContinueNoDialogue(); });
-        //dialoguePanelv2.SetActive(false);
     }
 
     void parseXmlFile(string xmlData)
     {
         xmlPathPattern = "//dialoguetree/dialoguebranch";
         string dIndex = dialogueIndex.ToString();
-        string totText = "";
+        string textUi = "";
+        string opt1 = "";
+        string opt2 = "";
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(new StringReader(xmlData));
         xmlPathPattern += dIndex;
@@ -46,22 +46,16 @@ public class XMLreaderOld : MonoBehaviour
         {
             XmlNode text = node.FirstChild;
 
+            textUi += text.InnerXml;
+            uiText.text = textUi;
 
-            totText += text.InnerXml;
-            uiText.text = totText;
+            opt1 += text.NextSibling;
+            option1.text = opt1;
 
-            Debug.Log(totText);
-        }
-    }
+            opt2 += text.NextSibling;
+            option2.text = opt2;
 
-    public void ContinueDialogue()
-    {
-        string data = xmlRawFile.text;
-
-        if (dialogueIndex == 1)
-        {
-            dialogueIndex = 2;
-            parseXmlFile(data);
+            Debug.Log(textUi);
         }
     }
 
