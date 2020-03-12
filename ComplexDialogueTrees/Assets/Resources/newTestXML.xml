@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<dialogtree>
+<dialog id='1'>
+  <text>Testing the dialog system!</text>
+  <response condition="True" nextDialogue='2'>
+    response text
+  </response>
+  <response condition="False" nextDialogue='3'>
+    response text
+  </response>
+</dialog>
+<dialog id='2'>
+  <message text="This is option 1!"></message>
+  <response condition="True" nextDialogue='2'>
+    response text
+  </response>
+  <response condition="False" nextDialogue='3'>
+    response text
+  </response>
+</dialog>
+<dialog id='3'>
+  <message text="This is option 2!"></message>
+  <response condition="True" nextDialogue='2'>
+    response text
+  </response>
+  <response condition="False" nextDialogue='3'>
+    response text
+  </response>
+</dialog>
+</dialogtree>
+
