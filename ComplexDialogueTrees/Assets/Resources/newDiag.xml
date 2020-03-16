@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding="utf-8"?>
+<Dialogue>
+	<Nodes>
+		<DialogueNode>
+			<NodeID>0</NodeID>
+			<Text>Hi, Welcome to the test dialogue.</Text>
+			<Options>
+				<DialogueOption>
+					<Text>LMAO!</Text>
+					<NewNodeID>1</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+					<Text>Hi Hi!</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>	
+		
+		<DialogueNode>
+			<NodeID>1</NodeID>
+			<Text>Well thats rude, I don't want to talk to you.</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>2</NodeID>
+			<Text>Hi my name is Jeff, what's yours?</Text>
+			<Options>
+				<DialogueOption>
+					<Text>My name is Owen, Pleasure to meet you!</Text>
+          <NewNodeID>3</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+					<Text>Wog1 my G, my names Owen!</Text>
+          <NewNodeID>3</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>3</NodeID>
+			<Text>Hi Owen , Nice to meet you!</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+	</Nodes>
+</Dialogue>

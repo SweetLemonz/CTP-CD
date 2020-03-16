@@ -14,8 +14,8 @@ public class DialogTree
     {
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(new StringReader(xmlData));
-        XmlNode node = xmlDoc.SelectSingleNode("//dialoguetree/dialoguebranch");
-        text = node.InnerText;
+        XmlNode node = xmlDoc.SelectSingleNode("dialoguetree/dialoguebranch");
+        text = node.InnerXml;
         XmlNodeList myNodeList = xmlDoc.SelectNodes("dialoguebranch/dialoguebranch");
         foreach (XmlNode node1 in myNodeList)
         {

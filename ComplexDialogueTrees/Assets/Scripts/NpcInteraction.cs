@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NpcInteraction : MonoBehaviour
 {
-    XMLreaderOld npcXML;
     private GameObject npcTrigger;
     private bool interact;
     private bool hasInteracted = false;
@@ -36,8 +35,6 @@ public class NpcInteraction : MonoBehaviour
 
     public void Interact()
     {
-        //DialogueManager.Instance.AddNewDialogue(dialogue, name);
-        npcXML.dialoguePanelv2.SetActive(true);
         
     }
 
