@@ -16,13 +16,20 @@ public class NpcDialogue : MonoBehaviour
     private GameObject option3;
     private GameObject exit;
 
+    private GameObject npcTrigger;
+    private bool interact;
+    private bool hasInteracted = false;
+    private GameObject interactText;
+
     private int optionSelected = -2;
     public string DataFilePath;
+    public bool npcInteracted = false;
     public GameObject DialogueWindowPrefab;
 
     void Start()
     {
-        dialog = loadDialogue("Assets/Resources/newdiag.xml");
+        
+        dialog = loadDialogue("Assets/Resources/" + DataFilePath);
         var canvas = GameObject.Find("Canvas");
    
         dialogueWindow = Instantiate<GameObject>(DialogueWindowPrefab);
@@ -31,6 +38,7 @@ public class NpcDialogue : MonoBehaviour
         RectTransform dialogueWindowTransform = (RectTransform)dialogueWindow.transform;
         dialogueWindowTransform.localPosition = new Vector3(0, 0, 0);
 
+        interactText = GameObject.Find("InteractText");
         npcText = GameObject.Find("NPCText");
         option1 = GameObject.Find("ButtonOption1");
         option2 = GameObject.Find("ButtonOption2");
@@ -41,8 +49,33 @@ public class NpcDialogue : MonoBehaviour
 
         dialogueWindow.SetActive(false);
 
-        RunDialogue();
+            RunDialogue();
+        
     }
+
+    void Update()
+    {
+        if (interact && hasInteracted == false)
+        {
+            interactText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                hasInteracted = true;
+                npcInteracted = true;
+                RunDialogue();
+                GameObject.Find("Player").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+            }
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+        }
+        else
+        {
+            interactText.SetActive(false);
+        }
+    }
+
 
     public static Dialogue loadDialogue(string path)
     {
@@ -65,21 +98,32 @@ public class NpcDialogue : MonoBehaviour
 
     public IEnumerator run()
     {
-        dialogueWindow.SetActive(true);
-
-        int nodeID = 0;
-
-        while (nodeID != -1)
+        if (npcInteracted == true)
         {
-            displayNode(dialog.Nodes[nodeID]);
-            optionSelected = -2;
-            while (optionSelected == -2)
+            dialogueWindow.SetActive(true);
+
+            int nodeID = 0;
+
+            while (nodeID != -1)
             {
-                yield return new WaitForSeconds(0.25f);
+                displayNode(dialog.Nodes[nodeID]);
+                optionSelected = -2;
+                while (optionSelected == -2)
+                {
+                    yield return new WaitForSeconds(0.25f);
+                }
+                nodeID = optionSelected;
             }
-            nodeID = optionSelected;
+            dialogueWindow.SetActive(false);
+            npcInteracted = false;
+            GameObject.Find("Player").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
-        dialogueWindow.SetActive(false);        
+        else
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 
     private void displayNode(DialogueNode node)
@@ -112,6 +156,25 @@ public class NpcDialogue : MonoBehaviour
         button.SetActive(true);
         button.GetComponentInChildren<Text>().text = opt.Text;
         button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            interact = true;
+            npcTrigger = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            interact = false;
+            npcTrigger = null;
+            hasInteracted = false;
+        }
     }
 }
 

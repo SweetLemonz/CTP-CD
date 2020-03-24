@@ -8,10 +8,12 @@ public class NpcInteraction : MonoBehaviour
     private bool interact;
     private bool hasInteracted = false;
     public GameObject interactText;
+    public NpcDialogue npcDialog;
 
-    public string[] dialogue;
-    public string name;
-
+    void Start()
+    {
+   
+    }
     void Update()
     {
         if (interact && hasInteracted == false)
@@ -22,7 +24,7 @@ public class NpcInteraction : MonoBehaviour
             {
                 print("Player Interaction Happened");
                 hasInteracted = true;
-                Interact();
+                npcDialog.npcInteracted = true;
             }
 
 
@@ -35,7 +37,7 @@ public class NpcInteraction : MonoBehaviour
 
     public void Interact()
     {
-        
+        npcDialog.npcInteracted = true;
     }
 
     void OnTriggerEnter(Collider other)
