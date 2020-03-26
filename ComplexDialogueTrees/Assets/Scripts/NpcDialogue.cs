@@ -15,8 +15,9 @@ public class NpcDialogue : MonoBehaviour
     private GameObject option2;
     private GameObject option3;
     private GameObject option4;
-    private GameObject exit;
-    public bool hasObject = true;
+    private GameObject end;
+    public GameObject npcObject;
+    public bool hasObject;
 
     private GameObject npcTrigger;
     private bool interact;
@@ -30,7 +31,7 @@ public class NpcDialogue : MonoBehaviour
 
     void Start()
     {
-        hasObject = true;
+        hasObject = false;
         dialog = loadDialogue("Assets/Resources/" + DataFilePath);
         var canvas = GameObject.Find("Canvas");
    
@@ -46,9 +47,9 @@ public class NpcDialogue : MonoBehaviour
         option2 = GameObject.Find("ButtonOption2");
         option3 = GameObject.Find("ButtonOption3");
         option4 = GameObject.Find("ButtonOption4");
-        exit = GameObject.Find("ButtonExit");
+        end = GameObject.Find("ButtonEnd");
 
-        exit.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(-1); });
+        end.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(-1); });
 
         dialogueWindow.SetActive(false);
 
@@ -152,7 +153,7 @@ public class NpcDialogue : MonoBehaviour
                     setOptionButton(option3, node.Options[i]);
                     break;
                 case 3:
-                    if (hasObject == true)
+                    if (hasObject == true) // (npcObject in inventory)
                     {
                         setOptionButton(option4, node.Options[i]);
                         break;
