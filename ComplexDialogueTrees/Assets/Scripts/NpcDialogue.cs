@@ -14,7 +14,9 @@ public class NpcDialogue : MonoBehaviour
     private GameObject option1;
     private GameObject option2;
     private GameObject option3;
+    private GameObject option4;
     private GameObject exit;
+    public bool hasObject = true;
 
     private GameObject npcTrigger;
     private bool interact;
@@ -28,7 +30,7 @@ public class NpcDialogue : MonoBehaviour
 
     void Start()
     {
-        
+        hasObject = true;
         dialog = loadDialogue("Assets/Resources/" + DataFilePath);
         var canvas = GameObject.Find("Canvas");
    
@@ -43,6 +45,7 @@ public class NpcDialogue : MonoBehaviour
         option1 = GameObject.Find("ButtonOption1");
         option2 = GameObject.Find("ButtonOption2");
         option3 = GameObject.Find("ButtonOption3");
+        option4 = GameObject.Find("ButtonOption4");
         exit = GameObject.Find("ButtonExit");
 
         exit.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(-1); });
@@ -133,8 +136,9 @@ public class NpcDialogue : MonoBehaviour
         option1.SetActive(false);
         option2.SetActive(false);
         option3.SetActive(false);
+        option4.SetActive(false);
 
-        for (int i = 0; i < node.Options.Count && i < 3; i++)
+        for (int i = 0; i < node.Options.Count && i < 4; i++)
         {
             switch (i)
             {
@@ -146,6 +150,14 @@ public class NpcDialogue : MonoBehaviour
                     break;
                 case 2:
                     setOptionButton(option3, node.Options[i]);
+                    break;
+                case 3:
+                    if (hasObject == true)
+                    {
+                        setOptionButton(option4, node.Options[i]);
+                        break;
+                    }
+                    else
                     break;
             }
         }

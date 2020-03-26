@@ -13,6 +13,14 @@
 					<Text>Hi Hi!</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
+      	<DialogueOption>
+					<Text>Option 3</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
+        <DialogueOption>
+					<Text>Option 4</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
 			</Options>
 		</DialogueNode>	
 		
