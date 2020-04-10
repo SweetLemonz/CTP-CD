@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueOption
+public class DialogueHiddenOption
 {
     public string Text;
     public int NewNodeID;
-    public int Condition;
-    public string Item;
 }

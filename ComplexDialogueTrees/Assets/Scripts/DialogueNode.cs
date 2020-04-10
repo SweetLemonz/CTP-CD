@@ -7,4 +7,5 @@ public class DialogueNode
     public string Text;
     public int NodeID = -1;
     public List<DialogueOption> Options;
+    public List<DialogueHiddenOption> HiddenOptions;
 }

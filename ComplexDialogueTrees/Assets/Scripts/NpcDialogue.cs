@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 public class NpcDialogue : MonoBehaviour
 {
-
+    public Inventory invent;
     private Dialogue dialog;
     private GameObject dialogueWindow;
     private GameObject npcText;
@@ -31,7 +31,7 @@ public class NpcDialogue : MonoBehaviour
 
     void Start()
     {
-        hasObject = false;
+        hasObject = true;
         dialog = loadDialogue("Assets/Resources/" + DataFilePath);
         var canvas = GameObject.Find("Canvas");
    
@@ -153,30 +153,81 @@ public class NpcDialogue : MonoBehaviour
                     setOptionButton(option3, node.Options[i]);
                     break;
                 case 3:
-                    if (hasObject == true) // (npcObject in inventory)
-                    {
-                        setOptionButton(option4, node.Options[i]);
-                        break;
-                    }
-                    else
+                    setOptionButton(option4, node.Options[i]);
                     break;
+                    //if (hasObject == true)
+                    //{
+                        //setHiddenOptionButton(option4, node.HiddenOptions[1]);
+                       // break;
+                   // }
+                   // else
+                       // break;
+                    
+                    // if (hasObject == true) // (npcObject in inventory)
+                    // {
+                    //    setOptionButton(option4, node.Options[i]);
+                    //     break;
+                    //  }
+                    // else
+                    // break;
             }
         }
+       //if (hasObject == true)
+       //{
+       //    setHiddenOptionButton(option4, node.HiddenOptions[0]);
+       //    return;
+       //}
     }
 
     private void setOptionButton(GameObject button, DialogueOption opt)
     {
-        button.SetActive(true);
-        button.GetComponentInChildren<Text>().text = opt.Text;
-        button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+        //if (opt.Condition == 0)
+        //{
+        //    button.SetActive(true);
+        //    button.GetComponentInChildren<Text>().text = opt.Text;
+        //    button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+        //}
+        //else
+        //    return;
+        switch(opt.Condition)
+        {
+            case 0:
+                button.SetActive(true);
+                button.GetComponentInChildren<Text>().text = opt.Text;
+                button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+                break;
+
+            case 1:
+                if (invent.items.Contains(opt.Item))
+                {
+                    button.SetActive(true);
+                    button.GetComponentInChildren<Text>().text = opt.Text;
+                    button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+
+            default:
+                break;
+        }
     }
+
+    private void setHiddenOptionButton(GameObject button, DialogueHiddenOption hidOpt)
+      {
+         button.SetActive(true);
+         button.GetComponentInChildren<Text>().text = hidOpt.Text;
+         button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(hidOpt.NewNodeID); });
+      }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             interact = true;
-            npcTrigger = other.gameObject;
+           // npcTrigger = other.gameObject;
         }
     }
 
@@ -185,7 +236,7 @@ public class NpcDialogue : MonoBehaviour
         if (other.tag == "Player")
         {
             interact = false;
-            npcTrigger = null;
+           // npcTrigger = null;
             hasInteracted = false;
         }
     }

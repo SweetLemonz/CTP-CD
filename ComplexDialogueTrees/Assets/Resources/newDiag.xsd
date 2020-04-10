@@ -22,6 +22,14 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
+                          <xs:element minOccurs="0" name="DialogueHiddenOption">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Text" type="xs:string" />
+                                <xs:element name="NewNodeID" type="xs:unsignedByte" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

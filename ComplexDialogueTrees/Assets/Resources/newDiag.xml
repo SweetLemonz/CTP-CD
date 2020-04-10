@@ -6,18 +6,23 @@
 			<Text>Hi, Welcome to the test dialogue.</Text>
 			<Options>
 				<DialogueOption>
-					<Text>LMAO!</Text>
+          <Condition>0</Condition>
+          <Text>LMAO!</Text>
 					<NewNodeID>1</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
+          <Condition>0</Condition>
 					<Text>Hi Hi!</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
       	<DialogueOption>
+          <Condition>0</Condition>
 					<Text>Option 3</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
         <DialogueOption>
+          <Condition>1</Condition>
+          <Item>apple</Item>
 					<Text>Option 4</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
