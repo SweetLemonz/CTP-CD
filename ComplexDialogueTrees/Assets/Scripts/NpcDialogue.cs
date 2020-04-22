@@ -7,7 +7,9 @@ using System.Xml.Serialization;
 
 public class NpcDialogue : MonoBehaviour
 {
+    public int inventItemCount = 0;
     public Inventory invent;
+    public SeenNPCs npcList;
     private Dialogue dialog;
     private GameObject dialogueWindow;
     private GameObject npcText;
@@ -16,6 +18,7 @@ public class NpcDialogue : MonoBehaviour
     private GameObject option3;
     private GameObject option4;
     private GameObject end;
+    private GameObject npcNameTitle;
     public GameObject npcObject;
     public bool hasObject;
 
@@ -48,6 +51,7 @@ public class NpcDialogue : MonoBehaviour
         option3 = GameObject.Find("ButtonOption3");
         option4 = GameObject.Find("ButtonOption4");
         end = GameObject.Find("ButtonEnd");
+        npcNameTitle = GameObject.Find("NPCName");
 
         end.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(-1); });
 
@@ -132,7 +136,13 @@ public class NpcDialogue : MonoBehaviour
 
     private void displayNode(DialogueNode node)
     {
-        npcText.GetComponent<Text>().text = node.Text;
+        string optionNodeText;
+        string npcName = node.NpcName;
+        optionNodeText = node.Text.Replace("$npcName", npcName);
+
+        SeenNPCs.instance.addName(npcName);
+        npcText.GetComponent<Text>().text = optionNodeText;
+        npcNameTitle.GetComponent<Text>().text = node.NpcName;
 
         option1.SetActive(false);
         option2.SetActive(false);
@@ -181,6 +191,11 @@ public class NpcDialogue : MonoBehaviour
 
     private void setOptionButton(GameObject button, DialogueOption opt)
     {
+        inventItemCount = 0;
+        //string optionText;
+        //string npcName = "Frank";
+       // optionText = opt.Text.Replace("$npcName", npcName);
+
         //if (opt.Condition == 0)
         //{
         //    button.SetActive(true);
@@ -189,8 +204,9 @@ public class NpcDialogue : MonoBehaviour
         //}
         //else
         //    return;
-        switch(opt.Condition)
+        switch (opt.Condition)
         {
+
             case 0:
                 button.SetActive(true);
                 button.GetComponentInChildren<Text>().text = opt.Text;
@@ -199,6 +215,32 @@ public class NpcDialogue : MonoBehaviour
 
             case 1:
                 if (invent.items.Contains(opt.Item))
+                {
+                    foreach(string item in invent.items)
+                    {
+                        if (item == opt.Item)
+                        {
+                            inventItemCount++;
+                        }
+                    }
+                    if (inventItemCount >= opt.AmountOfItem)
+                    {
+                        button.SetActive(true);
+                        button.GetComponentInChildren<Text>().text = opt.Text;
+                        button.GetComponent<Button>().onClick.AddListener(delegate { SetOptionSelected(opt.NewNodeID); });
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            case 2:
+                if (npcList.SeenNPCsList.Contains(opt.NeededNPC))
                 {
                     button.SetActive(true);
                     button.GetComponentInChildren<Text>().text = opt.Text;

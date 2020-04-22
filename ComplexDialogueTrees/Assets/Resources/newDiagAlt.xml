@@ -3,26 +3,26 @@
 	<Nodes>
 		<DialogueNode>
 			<NodeID>0</NodeID>
-      <NpcName>Steve</NpcName>
-			<Text>Hi, Welcome to the test dialogue im $npcName .</Text>
+      <NpcName>Franky</NpcName>
+			<Text>Wog1 my G welcome to the test dialogue im $npcName .</Text>
 			<Options>
 				<DialogueOption>
           <Condition>0</Condition>
-          <Text>LMAO!</Text>
+          <Text>Fight Me!</Text>
 					<NewNodeID>1</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
           <Condition>0</Condition>
-					<Text>Hi Hi!</Text>
+					<Text>Lol Wut!</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
       	<DialogueOption>
           <Condition>0</Condition>
-					<Text>Option 3</Text>
+					<Text>Go away</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
         <DialogueOption>
-          <Condition>1</Condition>
+          <Condition>2</Condition>
           <Item>apple</Item>
           <AmountOfItem>2</AmountOfItem>
 					<Text>Option 4</Text>
@@ -33,19 +33,12 @@
 		
 		<DialogueNode>
 			<NodeID>1</NodeID>
-			<Text>Well thats rude, I don't want to talk to you.</Text>
+			<Text>Bring it.</Text>
 			<Options>
 				<DialogueOption>
-          <Condition>0</Condition>
 					<Text>Exit</Text>
           <NewNodeID>-1</NewNodeID>
 				</DialogueOption>
-        <DialogueOption>
-          <Condition>2</Condition>
-          <NeededNPC>Franky</NeededNPC>
-          <Text>Oh you know Franky</Text>
-          <NewNodeID>3</NewNodeID>
-        </DialogueOption>
 			</Options>
 		</DialogueNode>
 		
