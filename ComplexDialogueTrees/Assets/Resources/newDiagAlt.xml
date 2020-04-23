@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding="utf-8"?>
+<Dialogue>
+	<Nodes>
+		<DialogueNode>
+			<NodeID>0</NodeID>
+      <NpcName>Franky</NpcName>
+			<Text>Hey, How's it going im $npcName .</Text>
+			<Options>
+				<DialogueOption>
+          <Condition>0</Condition>
+          <Text>Nice little village you got here</Text>
+					<NewNodeID>2</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+          <Condition>0</Condition>
+					<Text>You look strong, Fight Me!!</Text>
+          <NewNodeID>1</NewNodeID>
+				</DialogueOption>
+      	<DialogueOption>
+          <Condition>0</Condition>
+					<Text>Go away</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
+        <DialogueOption>
+          <Condition>2</Condition>
+          <NeededNPC>Steve</NeededNPC>
+					<Text>That Steve guy has a weird thing for apples right?!</Text>
+          <NewNodeID>4</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>	
+		
+		<DialogueNode>
+			<NodeID>1</NodeID>
+			<Text>Bring it small man.</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>2</NodeID>
+			<Text>Why thank you, what bring you here?</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Just travelling through!</Text>
+          <NewNodeID>3</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+					<Text>I was at the city nearby, I was told to come try the food done here</Text>
+          <NewNodeID>5</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>3</NodeID>
+			<Text>Ahh i see, save travels my friend</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+
+    <DialogueNode>
+      <NodeID>4</NodeID>
+      <Text>Yeah he does, I recommend avoiding him.</Text>
+      <Options>
+        <DialogueOption>
+          <Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+        </DialogueOption>
+      </Options>
+    </DialogueNode>
+
+    <DialogueNode>
+      <NodeID>5</NodeID>
+      <Text>Oh yes you got to try the food at our tavern its brilliant!</Text>
+      <Options>
+        <DialogueOption>
+          <Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+        </DialogueOption>
+      </Options>
+    </DialogueNode>
+	</Nodes>
+</Dialogue>

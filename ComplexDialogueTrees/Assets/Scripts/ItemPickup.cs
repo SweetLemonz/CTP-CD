@@ -2,42 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcInteraction : MonoBehaviour
+public class ItemPickup : MonoBehaviour
 {
-    XMLreaderOld npcXML;
-    private GameObject npcTrigger;
     private bool interact;
     private bool hasInteracted = false;
-    public GameObject interactText;
+    public GameObject pickupText;
 
-    public string[] dialogue;
-    public string name;
+    public Item item;
+    public string itemName;
 
+    void Start()
+    {
+        pickupText = GameObject.Find("PickUpText");
+    }
     void Update()
     {
         if (interact && hasInteracted == false)
         {
-            interactText.SetActive(true);
+            pickupText.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 print("Player Interaction Happened");
                 hasInteracted = true;
-                Interact();
+                PickUp();
             }
 
 
         }
         else
         {
-            interactText.SetActive(false);
+            pickupText.SetActive(false);
         }
     }
 
-    public void Interact()
+    public void PickUp()
     {
-        //DialogueManager.Instance.AddNewDialogue(dialogue, name);
-        npcXML.dialoguePanelv2.SetActive(true);
+        pickupText.SetActive(false);
+        Debug.Log("Picking Up Item");
+        Inventory.instance.addItem(itemName);
+        Destroy(gameObject);
+
         
     }
 
@@ -46,7 +51,6 @@ public class NpcInteraction : MonoBehaviour
         if (other.tag == "Player")
         {
             interact = true;
-            npcTrigger = other.gameObject;
         }
     }
 
@@ -55,8 +59,8 @@ public class NpcInteraction : MonoBehaviour
         if (other.tag == "Player")
         {
             interact = false;
-            npcTrigger = null;
             hasInteracted = false;
         }
     }
 }
+

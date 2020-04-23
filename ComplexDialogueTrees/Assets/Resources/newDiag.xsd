@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Dialogue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Nodes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="DialogueNode">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NodeID" type="xs:unsignedByte" />
+                    <xs:element name="Text" type="xs:string" />
+                    <xs:element name="Options">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="DialogueOption">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Text" type="xs:string" />
+                                <xs:element name="NewNodeID" type="xs:byte" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="DialogueHiddenOption">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Text" type="xs:string" />
+                                <xs:element name="NewNodeID" type="xs:unsignedByte" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding="utf-8"?>
+<Dialogue>
+	<Nodes>
+		<DialogueNode>
+			<NodeID>0</NodeID>
+      <NpcName>Steve</NpcName>
+			<Text>Hi, Welcome to the test dialogue im $npcName .</Text>
+			<Options>
+				<DialogueOption>
+          <Condition>0</Condition>
+          <Text>GO AWAY!!</Text>
+					<NewNodeID>1</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+          <Condition>0</Condition>
+					<Text>Hello how's it going Sir!</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
+      	<DialogueOption>
+          <Condition>0</Condition>
+					<Text>Hi, Nice weather were having, You Ok?</Text>
+          <NewNodeID>2</NewNodeID>
+				</DialogueOption>
+        <DialogueOption>
+          <Condition>0</Condition>
+					<Text>You look dirty</Text>
+          <NewNodeID>1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>	
+		
+		<DialogueNode>
+			<NodeID>1</NodeID>
+			<Text>Well thats rude, I don't want to talk to you.</Text>
+			<Options>
+				<DialogueOption>
+          <Condition>0</Condition>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>2</NodeID>
+			<Text>It going good thank you Sir, Just looking for some fallen apples?</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Apples? I'll let you know if I find some</Text>
+          <NewNodeID>3</NewNodeID>
+				</DialogueOption>
+				<DialogueOption>
+          <Condition>1</Condition>
+          <Item>apple</Item>
+          <AmountOfItem>2</AmountOfItem>
+					<Text>Oh Apples! I have some you can have!</Text>
+          <NewNodeID>4</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+		
+		<DialogueNode>
+			<NodeID>3</NodeID>
+			<Text>Much appreciated good Sir!</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+  
+		<DialogueNode>
+			<NodeID>4</NodeID>
+			<Text>Oh yes please! Thank you so much i've been wanting some apples in forever!</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+	</Nodes>
+</Dialogue>
