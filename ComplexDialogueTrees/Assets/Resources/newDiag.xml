@@ -8,25 +8,23 @@
 			<Options>
 				<DialogueOption>
           <Condition>0</Condition>
-          <Text>LMAO!</Text>
+          <Text>GO AWAY!!</Text>
 					<NewNodeID>1</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
           <Condition>0</Condition>
-					<Text>Hi Hi!</Text>
+					<Text>Hello how's it going Sir!</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
       	<DialogueOption>
           <Condition>0</Condition>
-					<Text>Option 3</Text>
+					<Text>Hi, Nice weather were having, You Ok?</Text>
           <NewNodeID>2</NewNodeID>
 				</DialogueOption>
         <DialogueOption>
-          <Condition>1</Condition>
-          <Item>apple</Item>
-          <AmountOfItem>2</AmountOfItem>
-					<Text>Option 4</Text>
-          <NewNodeID>2</NewNodeID>
+          <Condition>0</Condition>
+					<Text>You look dirty</Text>
+          <NewNodeID>1</NewNodeID>
 				</DialogueOption>
 			</Options>
 		</DialogueNode>	
@@ -40,33 +38,41 @@
 					<Text>Exit</Text>
           <NewNodeID>-1</NewNodeID>
 				</DialogueOption>
-        <DialogueOption>
-          <Condition>2</Condition>
-          <NeededNPC>Franky</NeededNPC>
-          <Text>Oh you know Franky</Text>
-          <NewNodeID>3</NewNodeID>
-        </DialogueOption>
 			</Options>
 		</DialogueNode>
 		
 		<DialogueNode>
 			<NodeID>2</NodeID>
-			<Text>Hi my name is Jeff, what's yours?</Text>
+			<Text>It going good thank you Sir, Just looking for some fallen apples?</Text>
 			<Options>
 				<DialogueOption>
-					<Text>My name is Owen, Pleasure to meet you!</Text>
+					<Text>Apples? I'll let you know if I find some</Text>
           <NewNodeID>3</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
-					<Text>Wog1 my G, my names Owen!</Text>
-          <NewNodeID>3</NewNodeID>
+          <Condition>1</Condition>
+          <Item>apple</Item>
+          <AmountOfItem>2</AmountOfItem>
+					<Text>Oh Apples! I have some you can have!</Text>
+          <NewNodeID>4</NewNodeID>
 				</DialogueOption>
 			</Options>
 		</DialogueNode>
 		
 		<DialogueNode>
 			<NodeID>3</NodeID>
-			<Text>Hi Owen , Nice to meet you!</Text>
+			<Text>Much appreciated good Sir!</Text>
+			<Options>
+				<DialogueOption>
+					<Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+				</DialogueOption>
+			</Options>
+		</DialogueNode>
+  
+		<DialogueNode>
+			<NodeID>4</NodeID>
+			<Text>Oh yes please! Thank you so much i've been wanting some apples in forever!</Text>
 			<Options>
 				<DialogueOption>
 					<Text>Exit</Text>

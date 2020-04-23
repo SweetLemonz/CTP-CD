@@ -142,7 +142,7 @@ public class NpcDialogue : MonoBehaviour
 
         SeenNPCs.instance.addName(npcName);
         npcText.GetComponent<Text>().text = optionNodeText;
-        npcNameTitle.GetComponent<Text>().text = node.NpcName;
+        //npcNameTitle.GetComponent<Text>().text = node.NpcName;
 
         option1.SetActive(false);
         option2.SetActive(false);
@@ -269,7 +269,6 @@ public class NpcDialogue : MonoBehaviour
         if (other.tag == "Player")
         {
             interact = true;
-           // npcTrigger = other.gameObject;
         }
     }
 
@@ -278,7 +277,6 @@ public class NpcDialogue : MonoBehaviour
         if (other.tag == "Player")
         {
             interact = false;
-           // npcTrigger = null;
             hasInteracted = false;
         }
     }

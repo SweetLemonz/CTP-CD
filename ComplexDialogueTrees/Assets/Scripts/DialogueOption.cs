@@ -8,6 +8,6 @@ public class DialogueOption
     public int NewNodeID;
     public int Condition;
     public string Item;
-    public string NeededNPC;
     public int AmountOfItem;
+    public string NeededNPC;
 }

@@ -6,7 +6,7 @@ public class ItemPickup : MonoBehaviour
 {
     private bool interact;
     private bool hasInteracted = false;
-    private GameObject pickupText;
+    public GameObject pickupText;
 
     public Item item;
     public string itemName;

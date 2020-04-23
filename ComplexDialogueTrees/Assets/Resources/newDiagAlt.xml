@@ -4,17 +4,17 @@
 		<DialogueNode>
 			<NodeID>0</NodeID>
       <NpcName>Franky</NpcName>
-			<Text>Wog1 my G welcome to the test dialogue im $npcName .</Text>
+			<Text>Hey, How's it going im $npcName .</Text>
 			<Options>
 				<DialogueOption>
           <Condition>0</Condition>
-          <Text>Fight Me!</Text>
-					<NewNodeID>1</NewNodeID>
+          <Text>Nice little village you got here</Text>
+					<NewNodeID>2</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
           <Condition>0</Condition>
-					<Text>Lol Wut!</Text>
-          <NewNodeID>2</NewNodeID>
+					<Text>You look strong, Fight Me!!</Text>
+          <NewNodeID>1</NewNodeID>
 				</DialogueOption>
       	<DialogueOption>
           <Condition>0</Condition>
@@ -23,17 +23,16 @@
 				</DialogueOption>
         <DialogueOption>
           <Condition>2</Condition>
-          <Item>apple</Item>
-          <AmountOfItem>2</AmountOfItem>
-					<Text>Option 4</Text>
-          <NewNodeID>2</NewNodeID>
+          <NeededNPC>Steve</NeededNPC>
+					<Text>That Steve guy has a weird thing for apples right?!</Text>
+          <NewNodeID>4</NewNodeID>
 				</DialogueOption>
 			</Options>
 		</DialogueNode>	
 		
 		<DialogueNode>
 			<NodeID>1</NodeID>
-			<Text>Bring it.</Text>
+			<Text>Bring it small man.</Text>
 			<Options>
 				<DialogueOption>
 					<Text>Exit</Text>
@@ -44,22 +43,22 @@
 		
 		<DialogueNode>
 			<NodeID>2</NodeID>
-			<Text>Hi my name is Jeff, what's yours?</Text>
+			<Text>Why thank you, what bring you here?</Text>
 			<Options>
 				<DialogueOption>
-					<Text>My name is Owen, Pleasure to meet you!</Text>
+					<Text>Just travelling through!</Text>
           <NewNodeID>3</NewNodeID>
 				</DialogueOption>
 				<DialogueOption>
-					<Text>Wog1 my G, my names Owen!</Text>
-          <NewNodeID>3</NewNodeID>
+					<Text>I was at the city nearby, I was told to come try the food done here</Text>
+          <NewNodeID>5</NewNodeID>
 				</DialogueOption>
 			</Options>
 		</DialogueNode>
 		
 		<DialogueNode>
 			<NodeID>3</NodeID>
-			<Text>Hi Owen , Nice to meet you!</Text>
+			<Text>Ahh i see, save travels my friend</Text>
 			<Options>
 				<DialogueOption>
 					<Text>Exit</Text>
@@ -67,5 +66,27 @@
 				</DialogueOption>
 			</Options>
 		</DialogueNode>
+
+    <DialogueNode>
+      <NodeID>4</NodeID>
+      <Text>Yeah he does, I recommend avoiding him.</Text>
+      <Options>
+        <DialogueOption>
+          <Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+        </DialogueOption>
+      </Options>
+    </DialogueNode>
+
+    <DialogueNode>
+      <NodeID>5</NodeID>
+      <Text>Oh yes you got to try the food at our tavern its brilliant!</Text>
+      <Options>
+        <DialogueOption>
+          <Text>Exit</Text>
+          <NewNodeID>-1</NewNodeID>
+        </DialogueOption>
+      </Options>
+    </DialogueNode>
 	</Nodes>
 </Dialogue>
